@@ -24,9 +24,26 @@ map.on('load', function () {
     "type": "circle",
     "source": "restaurantSource",
     "source-layer": "Historical_Restaurant_Inspect-20z3jy",
-    "paint": {
-      "circle-color": "#008F8C",
+   'paint':{
+      'circle-opacity': 0.3,
+      'circle-color':
+        ['step',
+          ['to-number', ['get', 'inspection_score']],
+          '#aaaaaa',  
+          45, '#440154',  // (45 - 80)
+          80, '#3b528b',  // (80 - 85)
+          85, '#21908d',  // (85 - 90)
+          90, '#5dc963',  // (90 - 95)
+          95, '#fde725'   // (95 - 100)
+          ]
   },
     
   });
+
+  console.log('My name is John');
+  map.on('mouseenter', 'Restaurants', (e) => {
+        var name = e.features[0]['properties']['business_name'];
+        var textField = document.getElementById('restText');
+        textField.innerHTML = name;
+    })
 })
