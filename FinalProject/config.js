@@ -63,7 +63,7 @@ var config = {
             hidden: false,
             title: 'Block groups by % with no cars',
             description: 'Block groups within a roughly one-half mile of the subway system have a higher percentage of their population not owning any cars.',
-            image: 'images/Data5.png',
+            image: 'Images/Data5.png',
             location: {
                 center: [-73.83011, 40.75957],
                 zoom: 14.47,
